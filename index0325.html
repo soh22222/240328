@@ -1,0 +1,118 @@
+
+<html lang="en">
+
+<head>
+  
+ <style>
+        /* reset css */
+        * {
+        box-sizing: border-box;
+      }
+
+      html, body, div, span, applet, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, big, cite, code,
+      del, dfn, em, img, ins, kbd, q, s, samp,
+      small, strike, strong, sub, sup, tt, var,
+      b, u, i, center,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td,
+      article, aside, canvas, details, embed,
+      figure, figcaption, footer, header, hgroup,
+      menu, nav, output, ruby, section, summary,
+      time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+
+  html,body{
+    width:100%;
+    height:100%;
+  }
+
+  body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+  h1{
+  font-size: 20px;
+ 
+}
+
+.calc{
+  display:flex;
+  input,select,button{
+    border:0.1 !important;
+  }
+}
+
+
+
+ </style>
+</head>
+<body>
+  <h1>계산기</h1>
+  <div class = "calc">
+    <input id="input1" type ="number"/>
+    
+     <select id="select">
+      <option value ="plus">+</option>
+      <option value ="minus">-</option>
+      <option value ="divide">/</option>
+      <option value ="multiply">*</option>
+     </select>
+      <input id="input2" type ="number"/>
+
+      <button id="button">=</button>
+
+      <h3 id = "result"></h3>
+  </div>
+  <script>
+    let input1 = document.getElementById('input1');
+    let input2 = document.getElementById('input2');
+    let select = document.getElementById('select');
+    let result = document.getElementById('result');
+    let button = document.getElementById('button');
+
+    button.onclick=() => {
+      const input1Value =parseInt(input1.value,10);
+      const input2Value =parseInt(input2.value,10); 
+
+      if(select.value === 'plus'){
+        result.innerText = plus(input1Value, input2Value);
+      }
+      else if(select.value === 'minus'){
+        result.innerText = minus(input1Value, input2Value);
+      }
+      else if(select.value === 'divide'){
+        result.innerText = divide(input1Value, input2Value);
+      }
+      else if(select.value === 'multiply'){
+        result.innerText = multiply(input1Value, input2Value);
+      }
+    }
+
+    const plus = (value1, value2)=> {
+      return value1+value2;
+    }
+    const minus = (value1, value2)=> {
+      return value1-value2;
+    }
+    const divide = (value1, value2)=> {
+      return value1/value2;
+    }
+    const multiply = (value1, value2)=> {
+      return value1*value2;
+    }
+
+  </script>
+</body>
+</html>
